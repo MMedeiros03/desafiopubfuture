@@ -12,8 +12,8 @@ from django.urls import reverse
 class Conta(models.Model):
     numConta = models.CharField(max_length=8,null=False,blank=False)
     saldo = models.DecimalField(max_digits=9,decimal_places=2,null=False,blank=False) # todos os campos recebem null e blanck = True
-    TIPOCONTA = (("1","carteira"),("2","corrente"),("3","poupanca")) # pois quero que sejam preenchidos obrigatoriamente;
-    tipoConta = models.CharField(max_length=1,choices=TIPOCONTA) # fiz dessa forma para o usuario escolher o tipo de conta;
+    TIPOCONTA = (("carteira","carteira"),("corrente","corrente"),("poupanca","poupanca")) # pois quero que sejam preenchidos obrigatoriamente;
+    tipoConta = models.CharField(max_length=8,choices=TIPOCONTA) # fiz dessa forma para o usuario escolher o tipo de conta;
     instituicaoFinanceira = models.CharField(max_length=200,null=False,blank=False)
 
     def Meta():
