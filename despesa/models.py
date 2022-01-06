@@ -10,15 +10,13 @@ from conta.models import Conta
 
 # Create your models here.
 
-# fazer classe tipodespesa.
-
 #criando a classe conta;
 class Despesa(models.Model):
     valor = models.CharField(max_length=8,null=False,blank=False)
     dataPagamento = models.DateField(null=False,blank=False) # todos os campos recebem null e blanck = True
     dataPagamentoEsperado = models.DateField(null=False,blank=False) # pois quero que sejam preenchidos obrigatoriamente;
-    TIPODESPESA = (("1","alimentacao"),("2","educacao"),("3","lazer"),("4","moradia"),("5","roupa"),("6","saude"),("7","transporte"),("8","outros")) 
-    tipoDespesa = models.CharField(max_length=1,choices=TIPODESPESA) # fiz dessa forma para o usuario escolher o tipo de despesa;
+    TIPODESPESA = (("alimentacao","alimentacao"),("educacao","educacao"),("lazer","lazer"),("moradia","moradia"),("roupa","roupa"),("saude","saude"),("transporte","transporte"),("outros","outros")) 
+    tipoDespesa = models.CharField(max_length=11,choices=TIPODESPESA) # fiz dessa forma para o usuario escolher o tipo de despesa;
     conta = models.ForeignKey(Conta,on_delete=models.CASCADE,related_name="despesas") # o campo conta sendo chave estrangeira, ligando as despesas a uma conta;
                                                                                     # ainda utiliza o metodo cascade. Signfica que quando uma conta for excluida,
                                                                                     # as despesas ligadas a ela também serão excluidas;
