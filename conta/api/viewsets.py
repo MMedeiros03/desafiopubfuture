@@ -1,9 +1,8 @@
-"""
 from rest_framework import viewsets
-from atracoes.models import Atracao
-from atracoes.api.serializer import AtracaoSerializer
+from conta.models import Conta
+from conta.api.serializers import ContaSerializer
 
-class AtracaoViewSet(viewsets.ModelViewSet):
-    queryset = Atracao.objects.all()
-    serializer_class = AtracaoSerializer
-"""
+class ContaViewSet(viewsets.ModelViewSet):
+    queryset = Conta.objects.all()
+    serializer_class = ContaSerializer
+
