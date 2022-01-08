@@ -1,14 +1,12 @@
 from django.urls import path, include
-#from products.views import 
+from conta.api.viewsets import ContaViewSet
 from rest_framework.routers import DefaultRouter
-
+from .views import listar_contas
 
 router = DefaultRouter()
-#router.register('', ProductViewSet)
+router.register('', ContaViewSet)
 
-#forma utilizada prara trazer items de uma categoria especifica 
 urlpatterns = [
-    #path('category/<str:cat>', get_products_by_category, name="get_products_by_category"),
-    #path('search/<str:query>', get_products_search, name="get_products_search"),
-    path('', include(router.urls))
+    path('lista/',listar_contas, name="listar_contas"),
+    path('', include(router.urls)),
 ]
