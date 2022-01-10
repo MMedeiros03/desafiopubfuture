@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<center>
+    <h2>Cadastrar Conta</h2>
+    <div>
+        <form action="submit" method="POST">{% csrf_token %}
+            <input type="number" name="id_conta" value="{{ conta.id_conta }}" hidden>
+            <label>Numero Da Conta</label>
+            <br>
+            <input type="text" name="numConta" value="{{ conta.numConta }}">
+            <br>
+            <label>Saldo</label>
+            <br>
+            <input type="number" name="saldo" value="{{ conta.saldo }}">
+            <br>
+            <label>Tipo de Conta</label>
+            <br>
+            <select class="form-control" name="tipoConta" value="{{ conta.tipoConta }}">
+                <option value="carteira">carteira</option>
+                <option value="corrente">corrente</option>      
+                <option value="poupanca">poupanca</option>
+            </select>
+            <br>
+            <label>instituicao Financeira</label>
+            <br>
+            <input type="text" name="instituicaoFinanceira" value="{{ conta.instituicaoFinanceira }}">
+            <br>
+            <button type="submit">Salvar</button>
+            <a href="/">
+                <button type="button">Cancelar</button>
+            </a>
+        </form>
+    </div>
+</center>
+{% endblock %}

@@ -22,6 +22,5 @@ urlpatterns = [
     path('despesa/', include('despesa.urls')),
     path('receita/', include('receita.urls')),
 
-    #frontend
-    path('', include('pages.urls')),
+    path("",include('paginas.urls')),
 ]
