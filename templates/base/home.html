@@ -1,5 +1,21 @@
 {% extends 'base/base.html'%}
 
+{% block title %}Finanças Pessoais{% endblock %}
+
 {% block content %}
-    {% include 'conta/listar_contas.html'%}
+    <div>
+        <h3>Contas</h3>
+    </div>
+
+    <div>
+        <h3>Receitas</h3>
+    </div>
+
+    <div>
+        <h3>Despesas</h3>
+    </div>
+
+    <a href="conta/">
+        <h1>Cadastrar nova Conta</h1>
+    </a>
 {% endblock %}
