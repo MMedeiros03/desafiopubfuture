@@ -1,10 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
 <div>
     {% for conta in contas %}
-    <div style="background-color: tomato;height: max-content;width: max-content;">
-        <h1>{{conta.numConta}}</h1>
-        <h1>{{conta.saldo}}</h1>
-        <h1>{{conta.tipoConta}}</h1>
-        <h1>{{conta.instituicaoFinanceira}}</h1>
-    </div>
+        <a href="{{conta.get_absolute_url}}">
+            <div>
+                <h1>{{ conta.numConta }}</h1>
+            </div>
+        </a>
+        <a href="conta/delete/{{conta.id}}">
+            <div> excluir </div>
+        </a>
+        
+        <a href="conta/?id={{conta.id}}">
+            <div> editar </div>
+        </a>
     {% endfor %}
+    <a href="conta/">
+        <div>
+            Cadastrar Conta
+        </div>
+    </a>
 </div>
+
+{% endblock %}

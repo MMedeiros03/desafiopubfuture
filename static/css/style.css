@@ -32,3 +32,16 @@
 p{
     margin-top: 30%;
 }
+
+#tipoconta{
+    width: 190px;
+    border: 1px solid black;
+    border-radius: 0px;
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+    color: inherit;
+}

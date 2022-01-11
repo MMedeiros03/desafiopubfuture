@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from rest_framework.decorators import api_view
 from conta.models import Conta
 
@@ -7,7 +7,12 @@ from conta.models import Conta
 @api_view(['GET'])
 def listar_contas(request):
     conta = Conta.objects.all()
-    return render(request,"base/home.html",{"contas":conta})
+    return render(request,"conta/listar_contas.html",{"contas":conta})
+
+def detalhes_conta(request,id=None,*args,**kwargs):
+    conta = get_object_or_404(Conta,id = id)
+    return render(request,"conta/detalhes_contas.html",{"conta":conta})
+
 
 def conta(request):
     id_conta = request.GET.get('id')
@@ -35,6 +40,7 @@ def cadastrar_contas(request):
                                 tipoConta=tipoConta,
                                 instituicaoFinanceira=instituicaoFinanceira)
     return redirect("/")
+
 
 def excluir_conta(request,id_conta):
     Conta.objects.filter(id=id_conta).delete()
