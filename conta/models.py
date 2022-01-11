@@ -10,6 +10,7 @@ from django.urls import reverse
 
 #criando a classe conta;
 class Conta(models.Model):
+    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     numConta = models.CharField(max_length=8,null=False,blank=False)
     saldo = models.DecimalField(max_digits=9,decimal_places=2,null=False,blank=False) # todos os campos recebem null e blanck = True
     TIPOCONTA = (("carteira","carteira"),("corrente","corrente"),("poupanca","poupanca")) # pois quero que sejam preenchidos obrigatoriamente;
@@ -21,7 +22,7 @@ class Conta(models.Model):
         verbose_name_plural = "contas"  #   django ira modificar automaticamente quando haver mais de uma conta;
 
     def get_absolute_url(self):
-        return reverse("conta:conta_detail",args=[self.id]) # essa função irá auxilar a criar urls, pois pretendo mostrar os detalhes da conta;
+        return reverse("paginas:detalhes_conta",args=[self.id]) # essa função irá auxilar a criar urls, pois pretendo mostrar os detalhes da conta;
     
     def __str__(self):
         return self.numConta #para no banco de dados aparecer com o numero da conta;

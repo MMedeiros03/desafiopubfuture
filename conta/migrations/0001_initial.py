@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Conta',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('saldo', models.DecimalField(decimal_places=2, max_digits=9)),
                 ('tipoConta', models.IntegerField(choices=[('1', 'carteira'), ('2', 'corrente'), ('3', 'poupanca')], max_length=1)),
                 ('instituicaoFinanceira', models.CharField(max_length=200)),
