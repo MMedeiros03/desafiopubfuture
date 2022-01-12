@@ -1,54 +1,50 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from rest_framework.decorators import api_view
-from conta.models import Conta
+from .models import Despesa
 
 # Create your views here.
 
 @api_view(['GET'])
-def listar_contas(request):
-    conta = Conta.objects.all()
-    return render(request,"base/home.html",{"contas":conta})
+def listar_despesas(request):
+    despesa = Despesa.objects.all()
+    return render(request,"despesa/listar_despesas.html",{"despesas":despesa})
 
-def conta(request):
-    id_conta = request.GET.get('id_conta')
+def detalhes_despesa(request,id=None,*args,**kwargs):
+    despesa = get_object_or_404(Despesa,id = id)
+    return render(request,"despesa/detalhes_despesa.html",{"despesa":despesa})
+
+
+def despesa(request):
+    id_despesa = request.GET.get('id')
     dados = {}
-    if id_conta:
-        dados['conta'] = Conta.objects.get(id=id_conta)
-    return render(request,"conta/cadastrar_conta.html",dados)
+    if id_despesa:
+        dados['despesa'] = Despesa.objects.get(id=id_despesa)
+    return render(request,"despesa/cadastrar_despesa.html",dados)
 
-def cadastrar_contas(request):
+def cadastrar_despesa(request):
     if request.POST:
-        numConta = request.POST.get("numConta")
-        saldo = request.POST.get("saldo")
-        tipoConta = request.POST.get("tipoConta")
-        instituicaoFinanceira = request.POST.get("instituicaoFinanceira")
-        id_conta = request.POST.get("id_conta")
-        if id_conta is False:
-            Conta.objects.create(id = id_conta,
-                                numConta=numConta,
-                                saldo=saldo,
-                                tipoConta=tipoConta,
-                                instituicaoFinanceira=instituicaoFinanceira)
+        valor = request.POST.get("valor")
+        dataPagamento = request.POST.get("dataPagamento")
+        dataPagamentoEsperado = request.POST.get("dataPagamentoEsperado")
+        tipoDespesa = request.POST.get("tipoDespesa")
+        conta = request.POST.get("conta")
+        id_despesa = request.POST.get("id_despesa")
+        if id_despesa:
+            Despesa.objects.filter(id=id_despesa).update(valor=valor,
+                                                         dataPagamento=dataPagamento,
+                                                         dataPagamentoEsperado=dataPagamentoEsperado,
+                                                         tipoDespesa=tipoDespesa,
+                                                         conta=conta)
+        else:
+            Despesa.objects.create(
+                                valor=valor,
+                                dataPagamento=dataPagamento,
+                                dataPagamentoEsperado=dataPagamentoEsperado,
+                                tipoDespesa=tipoDespesa,
+                                conta=conta)
     return redirect("/")
 
 
-def editar_conta(request):
-    if request.POST:
-        numConta = request.POST.get("numConta")
-        saldo = request.POST.get("saldo")
-        tipoConta = request.POST.get("tipoConta")
-        instituicaoFinanceira = request.POST.get("instituicaoFinanceira")
-        id_conta = request.POST.get("id_conta")
-        if id_conta:
-            Conta.objects.filter(id=id_conta).update(tnumConta=numConta,
-                                                    saldo=saldo,
-                                                    tipoConta=tipoConta,
-                                                    instituicaoFinanceira=instituicaoFinanceira)
-    return redirect("/")
-
-def excluir_conta(request,id):
-    if Conta.id is True:
-        Conta.delete()
-    else:
-        raise Http404()
+def excluir_despesa(request,id_despesa):
+    Despesa.objects.filter(id=id_despesa).delete()
     return redirect("/")
