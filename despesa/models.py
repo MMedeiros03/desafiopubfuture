@@ -26,7 +26,7 @@ class Despesa(models.Model):
         verbose_name_plural = "despesas"  #   django ira modificar automaticamente quando haver mais de uma conta;
 
     def get_absolute_url(self):
-        return reverse("despesa:despesa_detail",args=[self.id]) # essa função irá auxilar a criar urls, pois pretendo mostrar os detalhes da conta;
+        return reverse("paginas:detalhes_despesa",args=[self.id]) # essa função irá auxilar a criar urls, pois pretendo mostrar os detalhes da conta;
     
     def __str__(self):
         return self.tipoDespesa #para no banco de dados aparecer com o numero da conta;

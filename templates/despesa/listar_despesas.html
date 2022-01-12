@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div>
+    {% for despesa in despesas %}
+        <a href="{{despesa.get_absolute_url}}">
+            <div>
+                <h1>{{ despesa.tipoDespesa }}</h1>
+            </div>
+        </a>
+        <a href="despesa/delete/{{despesa.id}}">
+            <div> excluir </div>
+        </a>
+        
+        <a href="despesa/?id={{despesa.id}}">
+            <div> editar </div>
+        </a>
+        
+    {% endfor %}
+    <a href="despesa/">
+        <div>
+            Cadastrar Despesa
+        </div>
+    </a>
+</div>
+
+{% endblock %}
