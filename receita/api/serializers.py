@@ -1,12 +1,7 @@
-"""
-from inspect import ClassFoundException
-from django.db import models
-from django.db.models import fields
 from rest_framework.serializers import ModelSerializer
-from atracoes.models import Atracao
+from receita.models import Receita
 
-class AtracaoSerializer(ModelSerializer):
+class ReceitaSerializer(ModelSerializer):
     class Meta:
-        model = Atracao
-        fields = ("id",'nome','descricao','horario_func','idade_minima')
-"""
+        model = Receita
+        fields = "__all__"

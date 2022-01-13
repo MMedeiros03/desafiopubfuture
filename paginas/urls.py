@@ -4,6 +4,8 @@ from conta.views import listar_contas,conta,cadastrar_contas,excluir_conta,detal
 # despesa
 from despesa.views import cadastrar_despesa, listar_despesas,despesa,detalhes_despesa,excluir_despesa
 from django.views.generic import RedirectView
+
+from receita.views import listar_receitas,cadastrar_receitas,detalhes_receita,excluir_receita,receita
 from .views import PaginaPrincipal
 app_name = "paginas"
 
@@ -24,6 +26,16 @@ urlpatterns = [
     path('despesas/despesa/delete/<int:id_despesa>',excluir_despesa, name="delete"),
 
     # ----------Despesas----------
+
+    # ----------Receitas----------
+    path("receitas/",listar_receitas,name="receitas"),
+    path("receitas/<int:id>/",detalhes_receita,name="detalhes_receita"),
+    path('receitas/receita/',receita, name="receita"),
+    path('receitas/receita/submit',cadastrar_receitas, name="submit"),
+    path('receitas/receita/delete/<int:id_receita>',excluir_receita, name="delete"),
+
+
+    # ----------Receitas----------
     path("",RedirectView.as_view(url="home/")),
     path('home/',PaginaPrincipal.as_view(), name="home"),
 ]

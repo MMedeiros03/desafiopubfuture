@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div>
+    {% for receita in receitas %}
+        <a href="{{receita.get_absolute_url}}">
+            <div>
+                <h1>{{ receita.tipoReceita }}</h1>
+            </div>
+        </a>
+        <a href="receita/delete/{{receita.id}}">
+            <div> excluir </div>
+        </a>
+        
+        <a href="receita/?id={{receita.id}}">
+            <div> editar </div>
+        </a>
+        
+    {% endfor %}
+    <a href="receita/">
+        <div>
+            Cadastrar Receita
+        </div>
+    </a>
+</div>
+
+{% endblock %}
