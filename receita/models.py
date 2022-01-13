@@ -8,7 +8,7 @@ from django.urls import reverse
 class Receita(models.Model):
     valor = DecimalField(max_digits=9,decimal_places=2,blank=False,null=False)
     dataRecebimento = models.DateField(null=False,blank=False)
-    dataPagamentoEsperado = models.DateField(null=False,blank=False)
+    dataRecebimentoEsperado = models.DateField(null=False,blank=False)
     descricao = TextField(max_length=250,null=False,blank=False)
     conta = models.ForeignKey(Conta,on_delete=models.CASCADE,related_name="receitas")
     TIPORECEITA = (("salario","salario"),("presente","presente"),("premio","premio"),("outros","outros")) 
@@ -19,7 +19,7 @@ class Receita(models.Model):
         verbose_name_plural = "receitas"  #   django ira modificar automaticamente quando haver mais de uma receita;
 
     def get_absolute_url(self):
-        return reverse("receita:receita_detail",args=[self.id]) # essa função irá auxilar a criar urls, pois pretendo mostrar os detalhes da receita;
+        return reverse("paginas:detalhes_receita",args=[self.id]) # essa função irá auxilar a criar urls, pois pretendo mostrar os detalhes da receita;
     
     def __str__(self):
         return self.tipoReceita #para no banco de dados aparecer com o tipo de receita;

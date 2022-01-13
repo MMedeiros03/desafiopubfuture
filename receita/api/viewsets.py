@@ -1,9 +1,8 @@
-"""
 from rest_framework import viewsets
-from atracoes.models import Atracao
-from atracoes.api.serializer import AtracaoSerializer
+from receita.models import Receita
+from receita.api.serializers import ReceitaSerializer
 
-class AtracaoViewSet(viewsets.ModelViewSet):
-    queryset = Atracao.objects.all()
-    serializer_class = AtracaoSerializer
-"""
+class ReceitaViewSet(viewsets.ModelViewSet):
+    queryset = Receita.objects.all()
+    serializer_class = ReceitaSerializer
+

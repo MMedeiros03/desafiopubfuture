@@ -1,0 +1,50 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<center>
+    <h2>Cadastrar Receita</h2>
+    <div>
+        <form action="submit" method="POST">{% csrf_token %}
+            <input type="number" name="id_conta" value="{{ despesa.id }}" hidden>
+            <br>
+            <label>Valor da Despesa</label>
+            <br>
+            <input type="text" name="valor" value="{{ despesa.valor }}">
+            <br>
+            <label>Data de Pagamento</label>
+            <br>
+            <input type="date" name="dataPagamento" value="{{ despesa.dataPagamento }}">
+            <br>
+            <label>Data de Pagamento Esperado</label>
+            <br>
+            <input type="date" name="dataPagamentoEsperado" value="{{ despesa.dataPagamentoEsperado }}">
+            <br>
+            <label>Tipo de Despesa</label>
+            <br>
+            <select id="tipoconta" class="form-control" name="tipoDespesa" value="{{ despesa.tipoDespesa }}">
+                <option value="alimentacao">alimentacao</option>
+                <option value="educacao">educacao</option>
+                <option value="lazer">lazer</option>
+                <option value="moradia">moradia</option>
+                <option value="roupa">roupa</option>
+                <option value="saude">saude</option>
+                <option value="transporte">transporte</option>          
+                <option value="outros">outros</option>
+            </select>
+            <br>
+            <label>Conta</label>
+            <br>
+            <select class="form-control" name="conta">
+                <option value="14">12345620</option>
+                <option value="15">9874564</option>
+            </select>
+            <br>
+            <br>
+            <button type="submit">Salvar</button>
+            <a href="/">
+                <button type="button">Cancelar</button>
+            </a>
+        </form>
+    </div>
+</center>
+{% endblock %}

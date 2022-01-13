@@ -1,56 +1,54 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from rest_framework.decorators import api_view
-from conta.models import Conta
+from .models import Receita
 
 # Create your views here.
 
 @api_view(['GET'])
-def listar_contas(request):
-    conta = Conta.objects.all()
-    return render(request,"base/home.html",{"contas":conta})
+def listar_receitas(request):
+    receita = Receita.objects.all()
+    return render(request,"receita/listar_receitas.html",{"receitas":receita})
 
-def conta(request):
-    id_conta = request.GET.get('id_conta')
+def detalhes_receita(request,id=None,*args,**kwargs):
+    receita = get_object_or_404(Receita,id = id)
+    return render(request,"receita/detalhes_receita.html",{"receita":receita})
+
+
+def receita(request):
+    id_receita = request.GET.get('id')
     dados = {}
-    if id_conta:
-        dados['conta'] = Conta.objects.get(id=id_conta)
-    return render(request,"conta/cadastrar_conta.html",dados)
+    if id_receita:
+        dados['receita'] = Receita.objects.get(id=id_receita)
+    return render(request,"receita/cadastrar_receita.html",dados)
 
-def cadastrar_contas(request):
+def cadastrar_receitas(request):
     if request.POST:
-        numConta = request.POST.get("numConta")
-        saldo = request.POST.get("saldo")
-        tipoConta = request.POST.get("tipoConta")
-        instituicaoFinanceira = request.POST.get("instituicaoFinanceira")
-        id_conta = request.POST.get("id_conta")
-        if id_conta is False:
-            Conta.objects.create(id = id_conta,
-                                numConta=numConta,
-                                saldo=saldo,
-                                tipoConta=tipoConta,
-                                instituicaoFinanceira=instituicaoFinanceira)
+        valor = request.POST.get("valor")
+        dataRecebimento = request.POST.get("dataRecebimento")
+        dataRecebimentoEsperado = request.POST.get("dataRecebimentoEsperado")
+        descricao = request.POST.get("descricao")
+        tipoReceita = request.POST.get("tipoReceita")
+        conta = request.POST.get("conta")
+        id_receita = request.POST.get("id_receita")
+        if id_receita:
+            Receita.objects.filter(id=id_receita).update(valor = valor,
+                                                        dataRecebimento = dataRecebimento,
+                                                        dataRecebimentoEsperado = dataRecebimentoEsperado,
+                                                        descricao = descricao,
+                                                        tipoReceita = tipoReceita,
+                                                        conta = conta)
+        else:
+            Receita.objects.create(
+                                valor = valor,
+                                dataRecebimento = dataRecebimento,
+                                dataRecebimentoEsperado = dataRecebimentoEsperado,                                                descricao = descricao,
+                                tipoReceita = tipoReceita,
+                                conta = conta)
     return redirect("/")
 
 
-def editar_conta(request):
-    if request.POST:
-        numConta = request.POST.get("numConta")
-        saldo = request.POST.get("saldo")
-        tipoConta = request.POST.get("tipoConta")
-        instituicaoFinanceira = request.POST.get("instituicaoFinanceira")
-        id_conta = request.POST.get("id_conta")
-        if id_conta:
-            Conta.objects.filter(id=id_conta).update(tnumConta=numConta,
-                                                    saldo=saldo,
-                                                    tipoConta=tipoConta,
-                                                    instituicaoFinanceira=instituicaoFinanceira)
-    return redirect("/")
-
-def excluir_conta(request,id):
-    if Conta.id is True:
-        Conta.delete()
-    else:
-        raise Http404()
+def excluir_receita(request,id_receita):
+    Receita.objects.filter(id=id_receita).delete()
     return redirect("/")
 
 
