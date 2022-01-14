@@ -2,10 +2,10 @@ from django.urls import path
 # conta
 from conta.views import listar_contas,conta,cadastrar_contas,excluir_conta,detalhes_conta
 # despesa
-from despesa.views import cadastrar_despesa, listar_despesas,despesa,detalhes_despesa,excluir_despesa
+from despesa.views import listar_despesas,despesa,detalhes_despesa,excluir_despesa
 from django.views.generic import RedirectView
-
-from receita.views import listar_receitas,cadastrar_receitas,detalhes_receita,excluir_receita,receita
+# receita
+from receita.views import listar_receitas,detalhes_receita,excluir_receita,receita,editar_receita
 from .views import PaginaPrincipal
 app_name = "paginas"
 
@@ -22,7 +22,7 @@ urlpatterns = [
     path("despesas/",listar_despesas,name="despesas"),
     path("despesas/<int:id>/",detalhes_despesa,name="detalhes_despesa"),
     path('despesas/despesa/',despesa, name="despesa"),
-    path('despesas/despesa/submit',cadastrar_despesa, name="submit"),
+    #path('despesa/despesa/editar/<int:id_receita>',editar_receita,name="editar"),
     path('despesas/despesa/delete/<int:id_despesa>',excluir_despesa, name="delete"),
 
     # ----------Despesas----------
@@ -31,9 +31,8 @@ urlpatterns = [
     path("receitas/",listar_receitas,name="receitas"),
     path("receitas/<int:id>/",detalhes_receita,name="detalhes_receita"),
     path('receitas/receita/',receita, name="receita"),
-    path('receitas/receita/submit',cadastrar_receitas, name="submit"),
+    path('receitas/editar/<int:id_receita>/',editar_receita,name="editar"),
     path('receitas/receita/delete/<int:id_receita>',excluir_receita, name="delete"),
-
 
     # ----------Receitas----------
     path("",RedirectView.as_view(url="home/")),

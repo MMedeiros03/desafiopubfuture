@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from rest_framework.decorators import api_view
 from .models import Despesa
-
+from .forms import Despesa_Form
 # Create your views here.
 
 @api_view(['GET'])
@@ -15,12 +15,22 @@ def detalhes_despesa(request,id=None,*args,**kwargs):
 
 
 def despesa(request):
-    id_despesa = request.GET.get('id')
-    dados = {}
-    if id_despesa:
-        dados['despesa'] = Despesa.objects.get(id=id_despesa)
-    return render(request,"despesa/cadastrar_despesa.html",dados)
-
+    if request.method == "GET":
+        form = Despesa_Form()
+        context = {
+            'form':form
+        }
+        return render(request,"despesa/cadastrar_despesa.html",context=context)
+    else: 
+        form = Despesa_Form(request.POST)
+        if form.is_valid():
+            despesa = form.save()
+            form = Despesa_Form()
+        context = {
+        'form':form
+            }      
+        return render(request,"despesa/cadastrar_despesa.html",context=context)
+"""
 def cadastrar_despesa(request):
     if request.POST:
         valor = request.POST.get("valor")
@@ -43,7 +53,7 @@ def cadastrar_despesa(request):
                                 tipoDespesa=tipoDespesa,
                                 conta=conta)
     return redirect("/")
-
+"""
 
 def excluir_despesa(request,id_despesa):
     Despesa.objects.filter(id=id_despesa).delete()

@@ -4,14 +4,18 @@ from conta.models import Conta
 from django.urls import reverse 
 
 # Create your models here.
-
+TIPORECEITA = [
+    ("salario","salario"),
+    ("presente","presente"),
+    ("premio","premio"),
+    ("outros","outros")
+    ]
 class Receita(models.Model):
     valor = DecimalField(max_digits=9,decimal_places=2,blank=False,null=False)
     dataRecebimento = models.DateField(null=False,blank=False)
     dataRecebimentoEsperado = models.DateField(null=False,blank=False)
     descricao = TextField(max_length=250,null=False,blank=False)
     conta = models.ForeignKey(Conta,on_delete=models.CASCADE,related_name="receitas")
-    TIPORECEITA = (("salario","salario"),("presente","presente"),("premio","premio"),("outros","outros")) 
     tipoReceita = models.CharField(max_length=8,choices=TIPORECEITA)
 
     def Meta():

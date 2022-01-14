@@ -45,3 +45,13 @@ a{
     color: black;
     color: inherit;
 }
+
+#header{
+    background-color: rgb(97, 97, 97) ;
+    padding-bottom: 20px;
+    height: max-content;
+}
+
+body{
+    background-color: rgb(204, 204, 203);
+}
