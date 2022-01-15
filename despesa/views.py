@@ -54,6 +54,28 @@ def cadastrar_despesa(request):
                                 conta=conta)
     return redirect("/")
 """
+def editar_despesa(request,id_despesa):
+    if request.method == "GET":
+        despesa = Despesa.objects.filter(id=id_despesa).first()
+        form = Despesa_Form(instance=despesa)
+        context = {
+            'form':form,
+        }
+        return render(request,"despesa/cadastrar_despesa.html",context=context)
+
+    elif request.method == "POST":
+        despesa = Despesa.objects.filter(id=id_despesa).first()
+        form = Despesa_Form(request.POST,instance=despesa)
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+        else:
+            context = {
+            'form':form,
+            }      
+            return render(request,"despesa/cadastrar_despesa.html",context=context)
+
+
 
 def excluir_despesa(request,id_despesa):
     Despesa.objects.filter(id=id_despesa).delete()
