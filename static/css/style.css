@@ -7,6 +7,7 @@
     top: 50%;
     margin: -150px 0 0 -200px;
     background-color: brown;
+    border-radius: 10px;
 }
 #item2{
     text-align: center;
@@ -17,6 +18,7 @@
     top: 50%;
     margin: -150px 0 0 -200px;
     background-color: brown;
+    border-radius: 10px;
 }
 #item3{
     text-align: center;
@@ -27,6 +29,7 @@
     top: 50%;
     margin: -150px 0 0 -200px;
     background-color: brown;
+    border-radius: 10px;
 }
 
 p{
@@ -54,4 +57,38 @@ a{
 
 body{
     background-color: rgb(204, 204, 203);
+}
+
+#btn_cadastrar {
+    height: 10em;
+    position: relative }
+#btn_cadastrar p {
+    margin: 0;
+    background: rgb(43, 80, 136);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160px;
+    height: max-content;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 5px;
+}
+
+#qtde{
+    font-style: italic;
+    font-size: large;
+}
+
+#footer{
+    text-align: center;
+    background-color: #000000;
+    color: #F2FFFC;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.80;
+    box-sizing: border-box;
 }

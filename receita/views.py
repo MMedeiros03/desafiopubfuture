@@ -8,7 +8,8 @@ from .forms import Receita_Form
 @api_view(['GET'])
 def listar_receitas(request):
     receita = Receita.objects.all()
-    return render(request,"receita/listar_receitas.html",{"receitas":receita})
+    qtde_receita = len(receita)
+    return render(request,"receita/listar_receitas.html",{"receitas":receita,"qtde":qtde_receita})
 
 def detalhes_receita(request,id=None,*args,**kwargs):
     receita = get_object_or_404(Receita,id = id)

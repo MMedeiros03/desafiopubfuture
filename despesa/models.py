@@ -21,6 +21,7 @@ TIPODESPESA = [
     ("outros","outros")
 ]
 
+
 #criando a classe conta;
 class Despesa(models.Model):
     valor = models.CharField(max_length=8,null=False,blank=False)

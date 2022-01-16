@@ -2,6 +2,7 @@
 
 {% block content %}
 <div>
+    <center>
     {% for receita in receitas %}
         <a href="{{receita.get_absolute_url}}">
             <div>
@@ -15,13 +16,17 @@
         <a href="editar/{{receita.id}}/">
             <div> editar </div>
         </a>
-        
     {% endfor %}
+    </center>
     <a href="receita/">
-        <div>
-            Cadastrar Receita
+        <div id='btn_cadastrar'>
+            <p>Cadastrar Receita</p>
         </div>
     </a>
+</div>
+
+<div id="qtde">
+    Voce tem {{qtde}} receitas registradas.
 </div>
 
 {% endblock %}

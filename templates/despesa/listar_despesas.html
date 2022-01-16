@@ -2,6 +2,7 @@
 
 {% block content %}
 <div>
+    <center>
     {% for despesa in despesas %}
         <a href="{{despesa.get_absolute_url}}">
             <div>
@@ -14,14 +15,18 @@
         
         <a href="editar/{{despesa.id}}/">
             <div> editar </div>
-        </a>
-        
+        </a>    
     {% endfor %}
+    </center>
     <a href="despesa/">
-        <div>
-            Cadastrar Despesa
+        <div id="btn_cadastrar">
+            <p>Cadastrar Despesa</p>
         </div>
     </a>
+</div>
+
+<div id="qtde">
+    Voce tem {{qtde}} despesas cadastradas.
 </div>
 
 {% endblock %}

@@ -1,7 +1,9 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
+
 <div>
+    <center>
     {% for conta in contas %}
         <a href="{{conta.get_absolute_url}}">
             <div>
@@ -16,9 +18,10 @@
             <div> editar </div>
         </a>
     {% endfor %}
+    </center>
     <a href="conta/">
-        <div>
-            Cadastrar Conta
+        <div id="btn_cadastrar">
+            <p>Cadastrar Conta</p>
         </div>
     </a>
 </div>

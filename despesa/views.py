@@ -7,7 +7,8 @@ from .forms import Despesa_Form
 @api_view(['GET'])
 def listar_despesas(request):
     despesa = Despesa.objects.all()
-    return render(request,"despesa/listar_despesas.html",{"despesas":despesa})
+    qtde_despesa = len(despesa)
+    return render(request,"despesa/listar_despesas.html",{"despesas":despesa,"qtde":qtde_despesa})
 
 def detalhes_despesa(request,id=None,*args,**kwargs):
     despesa = get_object_or_404(Despesa,id = id)
