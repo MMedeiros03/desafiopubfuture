@@ -5,6 +5,8 @@ Desafio PubFuture 🚀🚀🚀
 - Status
 - Pré-Requisitos
 - Ferramentas e Tecnologias
+- Rest Api Framework
+- Arquitetura
 - Dependências e Libs Instaladas
 - Como rodar a aplicação no seu PC
 - Databases
@@ -20,7 +22,19 @@ Desafio PubFuture 🚀🚀🚀
 - VSCode para edição dos códigos
 
 ## Ferramentas e tecnologias
-No desenvolvimento deste projeto foi utilizado como ferramenta de gestão de tarefas o Trello, onde registei as atividades que precisavam ser feitas o que garantiu um fluxo de trabalho produtivo e organizado. Para fazer o versionamento do projeto utilizei o GitHub(github.com). e Para a edição de codigo utilizei o Visual Studio Code. A linguagem principal utilizada no projeto foi o python e como framework o DJANGO que são muito utilizados no desenvolvimento de sites. Diversos gigantes utilizam python e django em suas paginas web, como por exemplo o Spotify,Youtube e Instagram. 
+No desenvolvimento deste projeto foi utilizado como ferramenta de gestão de tarefas o Trello, onde registei as atividades que precisavam ser feitas o que garantiu um fluxo de trabalho produtivo e organizado. Para fazer o versionamento do projeto utilizei o GitHub(github.com). e Para a edição de codigo utilizei o Visual Studio Code. A linguagem principal utilizada no projeto foi o python e como framework o DJANGO que são muito utilizados no desenvolvimento de sites. Diversos gigantes utilizam python e django em suas paginas web, como por exemplo o Spotify,Youtube e Instagram. Também foi utilizado RestAPIFramework. 
+
+## Rest Api Framework
+O projeto utiliza uma api propria que armazena os dados em formato json. Para ter acesso ao espaço da api voce precisa:
+- estar com o site rodando (utilize o comando python manage.py runserver);
+- após isso, basta colar este link na barra de pesquisa do browser: http://127.0.0.1:8000/conta/ 
+- a mesma coisa para as demais classes do projeto: http://127.0.0.1:8000/despesa/, http://127.0.0.1:8000/receita/ 
+
+## Arquitetura
+Este projeto utiliza arquitetura MTV que é muito utilizada quando desenvolvido com django. 
+M -> Model -> Modelos do banco de dados; 
+T -> Template -> Templates HTML;
+V -> Views -> Toda a parte lógica do site.
 
 ## Dependências e Libs Instaladas
 Django == 4.0.1
@@ -42,7 +56,9 @@ djangorestframework == 3.13.1
 - Depois de clonar o repositório por padrão o git vai estar na BRANCH "MAIN". 
                                   
 - Agora que seu ambiente virtual já está ativado, você deve fazer o download de todas a bibliotecas co projeto através do comando "pip install requirements.txt".
-                                                                                                                                           
+
+- Quando iniciar o projeto, o banco de dados estará zerado, então será necessario fazer o cadastro de alguns classes. 
+
 - Após o termino da instalação deve-se executar o comando "python mange.py mekemigratios" para atualizar o banco de dados e os modelos.
 
 - Em seguida "python mange.py migrate" para aplicar as modificações realizadas. 

@@ -3,6 +3,10 @@ from django.forms.models import ModelForm
 from conta.models import Conta
 from .models import TIPODESPESA, Despesa
 
+"""
+No arquivo forms.py são criados os formularios que serão utilazados para fazer o cadastro de despesas no site;
+"""
+
 
 class Despesa_Form(ModelForm):
     class Meta:

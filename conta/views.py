@@ -1,5 +1,3 @@
-from http.client import HTTPResponse
-from turtle import circle
 from django.shortcuts import render,redirect,get_object_or_404
 from rest_framework.decorators import api_view
 from conta.models import Conta
@@ -49,13 +47,6 @@ def excluir_conta(request,id_conta):
     return redirect("/")
 
 
-def saldo_total(request):
-    contas = Conta.objects.all(saldo)
-    #saldo = contas.values().distinct()
-    #list_saldo = list(saldo)
-    #print("testando se a lista funcionou", list_saldo)
-    print(contas)
-    return render(request,"conta/saldo_total.html",{"contas":contas})#"saldo":saldo
 
 
 

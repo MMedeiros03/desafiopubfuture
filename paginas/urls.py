@@ -1,7 +1,6 @@
-from unicodedata import name
 from django.urls import path
 # conta
-from conta.views import listar_contas,conta,cadastrar_contas,excluir_conta,detalhes_conta,saldo_total
+from conta.views import listar_contas,conta,cadastrar_contas,excluir_conta,detalhes_conta
 # despesa
 from despesa.views import listar_despesas,despesa,detalhes_despesa,excluir_despesa,editar_despesa
 from django.views.generic import RedirectView
@@ -10,6 +9,11 @@ from receita.views import listar_receitas,detalhes_receita,excluir_receita,recei
 from .views import PaginaPrincipal
 app_name = "paginas"
 
+"""
+neste arquivo são cadastradas todas as rotas do site;
+"""
+
+
 urlpatterns = [
     # ----------Contas----------
     path('contas/',listar_contas, name = "contas"),
@@ -17,7 +21,6 @@ urlpatterns = [
     path('contas/conta/',conta, name="conta"),
     path('contas/conta/submit',cadastrar_contas, name="submit"),
     path('contas/conta/delete/<int:id_conta>',excluir_conta, name="delete"),
-    path('saldo_total/',saldo_total,name="saldo_total"),
     # ----------Contas----------
 
     # ----------Despesas----------

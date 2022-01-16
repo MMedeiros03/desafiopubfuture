@@ -3,6 +3,9 @@ from django.forms.models import ModelForm
 from conta.models import Conta
 from .models import TIPORECEITA, Receita
 
+"""
+No arquivo forms.py são criados os formularios que serão utilazados para fazer o cadastro de receitas no site;
+"""
 
 class Receita_Form(ModelForm):
     class Meta:

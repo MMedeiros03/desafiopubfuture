@@ -3,6 +3,11 @@ from django.db.models.fields import DateField, DecimalField, TextField
 from conta.models import Conta
 from django.urls import reverse 
 
+"""
+Neste arquivo são criados as variaveis da classe receita; 
+também sao definidas os campos da tabela receita, no banco de dados;
+"""
+
 # Create your models here.
 TIPORECEITA = [
     ("salario","salario"),
@@ -26,4 +31,4 @@ class Receita(models.Model):
         return reverse("paginas:detalhes_receita",args=[self.id]) # essa função irá auxilar a criar urls, pois pretendo mostrar os detalhes da receita;
     
     def __str__(self):
-        return self.tipoReceita #para no banco de dados aparecer com o tipo de receita;
+        return self.tipoReceita #para no banco de dados aparecer escrito corretamente o tipo de receita;
