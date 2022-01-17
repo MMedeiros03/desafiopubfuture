@@ -32,9 +32,9 @@ O projeto utiliza uma api propria que armazena os dados em formato json. Para te
 
 ## Arquitetura
 Este projeto utiliza arquitetura MTV que é muito utilizada quando desenvolvido com django. 
-M -> Model -> Modelos do banco de dados; 
-T -> Template -> Templates HTML;
-V -> Views -> Toda a parte lógica do site.
+- M -> Model -> Modelos do banco de dados; 
+- T -> Template -> Templates HTML;
+- V -> Views -> Toda a parte lógica do site.
 
 ## Dependências e Libs Instaladas
 Django == 4.0.1
