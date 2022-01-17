@@ -47,17 +47,17 @@ djangorestframework == 3.13.1
 - No seu terminal local você vai criar seu ambiente virtual e ativa-lo através dos seguintes comandos na ordem descrita:
   -> python -m venv (nome do seu ambiente virtual)
   -> cd (nome do ambiente virtual)
-  -> Scripts/activate
+  -> cd Scripts
+  -> activate (se estiver utilizando um terminal powershell, utilize: activate.bat)
+  -> cd .. (para sair da pasta scripts)
   
 - Agora é a hora de fazer o clone do projeto no GitHub (https://github.com/MMedeiros03/desafiopubfuture). Apos acessar o link do repositório, clicar em "clone" e copiar o caminho HTTPS;
 -  No repositório escolhido, caso seja uma pasta nova é necessário fazer um 'GIT INIT' antes de realizar o "GIT CLONE".                                                                      
 - Ainda no seu terminal local: fazer o comando git "GIT CLONE" e ao lado adicionar o caminho HTTPS copiado anteriormente.
 
-- Depois de clonar o repositório por padrão o git vai estar na BRANCH "MAIN". 
+- Depois de clonar o repositório, digite no terminal: cd desafiopubfuture
                                   
 - Agora que seu ambiente virtual já está ativado, você deve fazer o download de todas a bibliotecas co projeto através do comando "pip install requirements.txt".
-
-- Quando iniciar o projeto, o banco de dados estará zerado, então será necessario fazer o cadastro de alguns classes. 
 
 - Após o termino da instalação deve-se executar o comando "python mange.py mekemigratios" para atualizar o banco de dados e os modelos.
 
@@ -66,6 +66,7 @@ djangorestframework == 3.13.1
 - Depois de de concluir deve-se executar "python mange.py runserver"
 
 - Com o servidor rodando, pode acessar o nosso projeto pelo seguinte link: http://127.0.0.1:8000/
+
 
 
 ## Databases
