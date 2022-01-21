@@ -10,7 +10,7 @@ Desafio PubFuture 🚀🚀🚀
 - Dependências e Libs Instaladas
 - Como rodar a aplicação no seu PC
 - Databases
-- Licenças
+
 
 
 ## Este sistema está em desenvolvimento
@@ -22,7 +22,7 @@ Desafio PubFuture 🚀🚀🚀
 - VSCode para edição dos códigos
 
 ## Ferramentas e tecnologias
-No desenvolvimento deste projeto foi utilizado como ferramenta de gestão de tarefas o Trello, onde registei as atividades que precisavam ser feitas o que garantiu um fluxo de trabalho produtivo e organizado. Para fazer o versionamento do projeto utilizei o GitHub(github.com). e Para a edição de codigo utilizei o Visual Studio Code. A linguagem principal utilizada no projeto foi o python e como framework o DJANGO que são muito utilizados no desenvolvimento de sites. Diversos gigantes utilizam python e django em suas paginas web, como por exemplo o Spotify,Youtube e Instagram. Também foi utilizado RestAPIFramework. 
+No desenvolvimento deste projeto foi utilizado como ferramenta de gestão de tarefas o Trello, onde registrei as atividades que precisavam ser feitas durante os dias, o que garantiu um fluxo de trabalho produtivo e organizado. Para fazer o versionamento do projeto utilizei o GitHub.Para a edição de codigo utilizei o Visual Studio Code. A linguagem principal utilizada no projeto foi o Python e como framework o DJANGO que são muito utilizados no desenvolvimento de sites. Diversos gigantes utilizam python e django em suas paginas web, como por exemplo o Spotify,Youtube e Instagram. Também foi utilizado RestAPIFramework. 
 
 ## Rest Api Framework
 O projeto utiliza uma api propria que armazena os dados em formato json. Para ter acesso ao espaço da api voce precisa:
@@ -68,15 +68,9 @@ djangorestframework == 3.13.1
 - Com o servidor rodando, pode acessar o nosso projeto pelo seguinte link: http://127.0.0.1:8000/
 
 
-
 ## Databases
 Neste projeto foi utilizado o banco de dados sqlite que vem por padrão quando um projeto django é criado;
 Por ser uma aplicação simples, ele é adequado para a demanda. 
-
-
-## Licença
-Foi utilizado a licença: GNU General Public License v3.0
-Caso queira consultar acesse: https://github.com/Machado-tec/readme/blob/main/LICENSE
 
 
 Muito obrigada por ter lido a documentação. Caso queira conversar comigo por favor me chame para a entrevista 😂😂😂😂
